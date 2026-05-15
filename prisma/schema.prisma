@@ -1,0 +1,18 @@
+// Optional Prisma schema for relational data / notes alongside MongoDB models.
+// Run `npx prisma generate` after installing `prisma` if you wire this up.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  title     String
+  body      String?
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="24" fill="#1e293b"/>
+  <circle cx="60" cy="52" r="28" fill="#334155" stroke="#475569" stroke-width="2"/>
+  <text x="60" y="58" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="14" font-weight="700">TEAM</text>
+  <path d="M30 88h60l-8 16H38l-8-16z" fill="#059669"/>
+  <path d="M44 88h32v4H44z" fill="#10b981"/>
+</svg>

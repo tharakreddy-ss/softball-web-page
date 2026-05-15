@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" fill="none">
+  <rect width="800" height="160" rx="12" fill="#0f172a"/>
+  <rect x="0" y="0" width="800" height="160" rx="12" fill="url(#dash)" opacity="0.9"/>
+  <defs>
+    <linearGradient id="dash" x1="0" y1="0" x2="800" y2="160">
+      <stop stop-color="#059669"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <text x="32" y="72" fill="white" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Tournament Dashboard</text>
+  <text x="32" y="108" fill="#a7f3d0" font-family="system-ui,sans-serif" font-size="14">Manage matches, teams, and live scores</text>
+</svg>

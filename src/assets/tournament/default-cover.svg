@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" fill="none">
+  <rect width="640" height="280" fill="#134e4a"/>
+  <rect width="640" height="280" fill="url(#cover)" opacity="0.85"/>
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="640" y2="280">
+      <stop stop-color="#059669"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <path d="M80 200 Q320 80 560 200" stroke="#34d399" stroke-width="2" fill="none" opacity="0.6"/>
+  <circle cx="520" cy="80" r="24" fill="#fbbf24"/>
+  <text x="32" y="140" fill="white" font-family="system-ui,sans-serif" font-size="32" font-weight="800">TOURNAMENT</text>
+  <text x="32" y="175" fill="#6ee7b7" font-family="system-ui,sans-serif" font-size="14">Default event cover</text>
+</svg>
