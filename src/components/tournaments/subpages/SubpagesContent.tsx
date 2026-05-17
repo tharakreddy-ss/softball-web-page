@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Radio, Trophy, Calendar, MapPin } from "lucide-react";
+import { GoogleMapEmbed } from "@/components/maps/GoogleMapEmbed";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { LiveMatchCard } from "@/components/tournaments/LiveMatchCard";
@@ -353,16 +354,26 @@ export function HighlightsContent() {
 }
 
 export function VenueContent({ tournament }: { tournament: TournamentView }) {
+  const mapQuery = [tournament.venue, tournament.city].filter(Boolean).join(", ");
+
   return (
-    <div className={`${glass} space-y-4`}>
-      <h3 className="text-xl font-bold text-white">{tournament.venue}</h3>
-      <p className="text-slate-400">{tournament.city}</p>
-      <ul className="list-inside list-disc text-sm text-slate-300">
-        <li>2 regulation diamonds + 1 practice field</li>
-        <li>Seating capacity: 4,200</li>
-        <li>Concessions & medical tent on-site</li>
-        <li>Parking: Lots A–C</li>
-      </ul>
+    <div className="space-y-6">
+      <GoogleMapEmbed
+        query={mapQuery}
+        title={`${tournament.title} venue`}
+        className="w-full"
+        height={400}
+      />
+      <div className={`${glass} space-y-4`}>
+        <h3 className="text-xl font-bold text-white">{tournament.venue}</h3>
+        <p className="text-slate-400">{tournament.city}</p>
+        <ul className="list-inside list-disc text-sm text-slate-300">
+          <li>2 regulation diamonds + 1 practice field</li>
+          <li>Seating capacity: 4,200</li>
+          <li>Concessions & medical tent on-site</li>
+          <li>Parking: Lots A–C</li>
+        </ul>
+      </div>
     </div>
   );
 }
