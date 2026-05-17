@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "assets:sync": "node -e \"const fs=require('fs');const p=require('path');const s='src/assets',d='public/assets';fs.cpSync(s,d,{recursive:true,filter:f=>!f.endsWith('index.ts')&&f!==s});\""
+    "assets:sync": "node -e \"const fs=require('fs');const p=require('path');const s='src/assets',d='public/assets';fs.cpSync(s,d,{recursive:true,filter:f=>!f.endsWith('index.ts')&&f!==s});\"",
+    "db:test": "node scripts/test-db-connection.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.10",

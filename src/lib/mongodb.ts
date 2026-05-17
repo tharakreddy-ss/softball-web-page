@@ -1,6 +1,15 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/softball-tournament";
+function getMongoUri(): string {
+  const uri = process.env.MONGODB_URI;
+  if (uri) return uri;
+
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("MONGODB_URI is not defined. Set it in your environment.");
+  }
+
+  return "mongodb://localhost:27017/softball-tournament";
+}
 
 interface MongooseCache {
   conn: typeof mongoose | null;
@@ -19,9 +28,20 @@ export async function connectDB(): Promise<typeof mongoose> {
   if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false });
+    const uri = getMongoUri();
+    cached.promise = mongoose.connect(uri, { bufferCommands: false }).then((conn) => {
+      if (process.env.NODE_ENV !== "production") {
+        console.info("[mongodb] Connected to", conn.connection.name);
+      }
+      return conn;
+    });
   }
 
-  cached.conn = await cached.promise;
-  return cached.conn;
+  try {
+    cached.conn = await cached.promise;
+    return cached.conn;
+  } catch (error) {
+    cached.promise = null;
+    throw error;
+  }
 }
